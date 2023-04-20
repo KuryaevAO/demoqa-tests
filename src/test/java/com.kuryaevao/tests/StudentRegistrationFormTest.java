@@ -8,7 +8,8 @@ import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byClassName;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class StudentRegistrationFormTest {
     @BeforeAll
@@ -19,7 +20,7 @@ public class StudentRegistrationFormTest {
     }
 
     @Test
-    void fillAllFormsTest(){
+    void fillAllFormsTest() {
         // объявляем переменные для удобства
         String firstName = "Alexandr";
         String lastName = "Kuryaev";
@@ -49,7 +50,7 @@ public class StudentRegistrationFormTest {
         System.out.println($(byClassName("table-responsive")));//выводим в консоль
 
         // сверяем полученные данные
-        $(byClassName("table-responsive")).shouldHave(text(firstName+" "+ lastName));
+        $(byClassName("table-responsive")).shouldHave(text(firstName + " " + lastName));
         $(byClassName("table-responsive")).shouldHave(text(userEmail));
         $(byClassName("table-responsive")).shouldHave(text("Male"));
         $(byClassName("table-responsive")).shouldHave(text(userNumber));
