@@ -1,7 +1,5 @@
 package com.kuryaevao.tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -11,25 +9,21 @@ import static com.codeborne.selenide.Selectors.byClassName;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class StudentRegistrationFormTest {
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.startMaximized = true;
-        Configuration.browserSize = "3840×2160";
-        Configuration.pageLoadTimeout = 600000;
-    }
+public class StudentRegistrationFormTest extends TestBase {
 
     @Test
     void fillAllFormsTest() {
+
         // объявляем переменные для удобства
-        String firstName = "Alexandr";
-        String lastName = "Kuryaev";
-        String userEmail = "a.kuryaev@mail.ru";
-        String userNumber = "9876543211";
-        String subject = "Maths";
-        String currentAddress = "Saransk";
-        String userState = "NCR";
-        String userCity = "Delhi";
+
+        String firstName = "Alexandr",
+                lastName = "Kuryaev",
+                userEmail = "a.kuryaev@mail.ru",
+                userNumber = "9876543211",
+                subject = "Maths",
+                currentAddress = "Saransk",
+                userState = "NCR",
+                userCity = "Delhi";
 
         open("https://demoqa.com/automation-practice-form");
         $("#firstName").setValue(firstName);// имя
