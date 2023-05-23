@@ -26,7 +26,6 @@ public class RegistrationPage {
             stateCityWrapper = $("#stateCity-wrapper"),
             submitInput = $("#submit");
 
-
     public CalendarComponent calendar = new CalendarComponent();
 
     public void openPage() {
