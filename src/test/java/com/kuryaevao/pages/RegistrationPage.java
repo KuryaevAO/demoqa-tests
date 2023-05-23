@@ -5,6 +5,7 @@ import com.kuryaevao.pages.components.CalendarComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byClassName;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -17,7 +18,14 @@ public class RegistrationPage {
             lastNameInput = $("#lastName"),
             emailInput = $("#userEmail"),
             phoneInput = $("#userNumber"),
-            currentAddressInput = $("#currentAddress");
+            currentAddressInput = $("#currentAddress"),
+            subjectInput = $("#subjectsInput"),
+            hobbieWrapper = $("#hobbiesWrapper"),
+            stateInput = $("#state"),
+            cityInput = $("#city"),
+            stateCityWrapper = $("#stateCity-wrapper"),
+            submitInput = $("#submit");
+
 
     public CalendarComponent calendar = new CalendarComponent();
 
@@ -44,6 +52,33 @@ public class RegistrationPage {
 
     public void typeCurrentAddress(String value) {
         currentAddressInput.setValue(value);
+    }
+
+    public void selectGender(String value) {
+        $("#genterWrapper").$(byText(value)).click();
+    }
+
+    public void selectSubject(String value) {
+        subjectInput.setValue(value).pressEnter();
+    }
+
+    public void selectHobbies(String value) {
+        hobbieWrapper.$(byText(value)).click();
+        ;
+    }
+
+    public void selectState(String value) {
+        stateInput.scrollTo().click();
+        stateCityWrapper.$(byText(value)).click();
+    }
+
+    public void selectCity(String value) {
+        cityInput.click();
+        stateCityWrapper.$(byText(value)).click();
+    }
+
+    public void submitForm() {
+        submitInput.scrollTo().pressEnter();
     }
 
     public SelenideElement createdTable = $(byClassName("table-responsive"));
