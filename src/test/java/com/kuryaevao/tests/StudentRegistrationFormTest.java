@@ -1,6 +1,7 @@
 package com.kuryaevao.tests;
 
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -13,6 +14,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class StudentRegistrationFormTest extends TestBase {
 
     @Test
+    @Tag("simpleTest")
     @Disabled
     void fillAllFormsTest() {
 

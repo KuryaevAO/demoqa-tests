@@ -1,6 +1,7 @@
 package com.kuryaevao.tests;
 
 import com.kuryaevao.pages.RegistrationPage;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -12,6 +13,7 @@ public class StudentRegistrationFormExtendedTest extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
+    @Tag("testBaseTest")
     void fillAllFormsExtendedTest() {
 
         step("Открывает страницу и проверяем заголовок", () -> {
