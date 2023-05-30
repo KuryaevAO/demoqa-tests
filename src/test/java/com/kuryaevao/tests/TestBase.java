@@ -2,13 +2,13 @@ package com.kuryaevao.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import config.CredentialsConfig;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import config.CredentialsConfig;
-import org.aeonbits.owner.ConfigFactory;
 
 public class TestBase {
 
@@ -25,8 +25,7 @@ public class TestBase {
         String browserSize = System.getProperty("browserSize", "1920x1080");
         String browserVersion = System.getProperty("browserVersion", "100");
         String baseUrl = System.getProperty("baseUrl", "https://demoqa.com");
-        String remoteUrl =  System.getProperty("remoteUrl", "selenoid.autotests.cloud/wd/hub/");
-        //вот тут не придумал как лучше url удаленного браузера
+        String remoteUrl = System.getProperty("remoteUrl", "selenoid.autotests.cloud/wd/hub/");
 
         Configuration.startMaximized = true;
         Configuration.browser = browser;
@@ -43,7 +42,7 @@ public class TestBase {
         capabilities.setCapability("enableVideo", true);
 
         Configuration.browserCapabilities = capabilities;
-        Configuration.remote = "https://"+login+":"+password+"@"+remoteUrl;
+        Configuration.remote = "https://" + login + ":" + password + "@" + remoteUrl;
     }
 
     @AfterEach
