@@ -2,8 +2,8 @@ package com.kuryaevao.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import config.CredentialsConfig;
-import helpers.Attach;
+import com.kuryaevao.config.CredentialsConfig;
+import com.kuryaevao.helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
@@ -26,6 +26,7 @@ public class TestBase {
         String browserVersion = System.getProperty("browserVersion", "100");
         String baseUrl = System.getProperty("baseUrl", "https://demoqa.com");
         String remoteUrl = System.getProperty("remoteUrl", "selenoid.autotests.cloud/wd/hub/");
+        //вот тут не придумал как лучше url удаленного браузера
 
         Configuration.startMaximized = true;
         Configuration.browser = browser;
