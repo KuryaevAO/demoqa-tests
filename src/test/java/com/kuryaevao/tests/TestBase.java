@@ -23,10 +23,9 @@ public class TestBase {
 
         String browser = System.getProperty("browser", "chrome");
         String browserSize = System.getProperty("browserSize", "1920x1080");
-        String browserVersion = System.getProperty("browserVersion", "100");
+        String browserVersion = System.getProperty("browserVersion", "113");
         String baseUrl = System.getProperty("baseUrl", "https://demoqa.com");
-        String remoteUrl = System.getProperty("remoteUrl", "selenoid.autotests.cloud/wd/hub/");
-        //вот тут не придумал как лучше url удаленного браузера
+        String remoteUrl = System.getProperty("remoteUrl", "http://localhost:8080/wd/hub/");
 
         Configuration.startMaximized = true;
         Configuration.browser = browser;
@@ -40,10 +39,10 @@ public class TestBase {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
+        //capabilities.setCapability("enableVideo", true);
 
         Configuration.browserCapabilities = capabilities;
-        Configuration.remote = "https://" + login + ":" + password + "@" + remoteUrl;
+        Configuration.remote = remoteUrl;
     }
 
     @AfterEach
@@ -51,6 +50,6 @@ public class TestBase {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        Attach.addVideo();
+        //Attach.addVideo();
     }
 }
